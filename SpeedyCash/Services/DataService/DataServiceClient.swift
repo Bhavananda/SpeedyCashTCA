@@ -43,4 +43,16 @@ private enum DataServiceClientKey: DependencyKey {
             moveCalculationToLoan: service.moveCalculationToLoan(calculation:)
         )
     }()
+    
+    static let testValue = DataServiceClient(
+            loansPublisher: { Empty().eraseToAnyPublisher() },
+            calculationsPublisher: { Empty().eraseToAnyPublisher() },
+            testPublisher: { Empty().eraseToAnyPublisher() },
+            addOrUpdateLoan: { _ in },
+            addCalculation: { _ in },
+            deleteLoan: { _ in },
+            deleteCalculation: { _ in },
+            setResult: { _ in },
+            moveCalculationToLoan: { _ in }
+        )
 }
